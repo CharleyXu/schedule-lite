@@ -1,0 +1,18 @@
+server:
+  port: 8084
+
+curator:
+  #重试次数
+  maxRetries: 5
+  #重试间隔时间
+  elapsedTimeMs: 5000
+  # zookeeper 地址
+  serverLists: 192.168.255.133:2181,192.168.255.134:2181,192.168.255.136:2181
+  # session超时时间
+  sessionTimeoutMs: 60000
+  # 连接超时时间
+  connectionTimeoutMs: 5000
+  # 权限管理  user:pwd
+  digest:
+  # 命名空间
+  namespace: base-namespace
