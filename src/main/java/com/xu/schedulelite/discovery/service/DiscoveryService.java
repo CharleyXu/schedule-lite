@@ -3,6 +3,7 @@ package com.xu.schedulelite.discovery.service;
 import com.xu.schedulelite.discovery.config.ServiceDiscoveryConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
  * 服务注册与发现
  */
 @Service
+@ConditionalOnExpression("'${discovery.enable}' == 'true'")
 public class DiscoveryService {
 
   @Autowired

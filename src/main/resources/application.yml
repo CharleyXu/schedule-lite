@@ -22,8 +22,9 @@ curator:
 swagger:
   enable: true
 
-#服务发现 根节点
+#服务发现 根节点   enable为true时开启
 discovery:
+  enable: false
   root: /rootNode
   serviceName: serviceDiscovery
   desc: 测试节点1
