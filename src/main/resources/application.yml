@@ -1,6 +1,7 @@
 server:
   port: 8084
 
+
 curator:
   #重试次数
   maxRetries: 5
@@ -15,4 +16,26 @@ curator:
   # 权限管理  user:pwd
   digest:
   # 命名空间
-  namespace: base-namespace
+  # base-namespace  discovery-namespace
+  namespace: discovery-namespace
+
+swagger:
+  enable: true
+
+#服务发现 根节点
+discovery:
+  root: /rootNode
+  serviceName: serviceDiscovery
+  desc: 测试节点1
+  weight: 1
+
+spring:
+  banner:
+    charset: UTF-8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  messages:
+    encoding: UTF-8

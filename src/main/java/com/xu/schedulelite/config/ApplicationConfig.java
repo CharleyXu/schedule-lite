@@ -1,5 +1,8 @@
 package com.xu.schedulelite.config;
 
+import com.xu.schedulelite.discovery.config.ServiceDiscoveryConfig;
+import com.xu.schedulelite.discovery.config.ServiceRegistryConfig;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -15,13 +18,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
+@ConditionalOnExpression("'${swagger.enable}' == 'true'")
 public class ApplicationConfig {
 
   @Bean
   public Docket apiSwagger2Service() {
     ApiInfo apiInfo = new ApiInfoBuilder()//
         .title("REST APIs")//
-        .description("Monitor Interfaces")//
+        .description("Schedule-lite Interfaces")//
         .version("1.0")//
         .build();
     return new Docket(DocumentationType.SWAGGER_2)//
@@ -31,5 +35,15 @@ public class ApplicationConfig {
         .apis(RequestHandlerSelectors.basePackage("com.xu.schedulelite"))
         .paths(PathSelectors.ant("/**"))
         .build();
+  }
+
+  @Bean(initMethod = "init")
+  public ServiceRegistryConfig initRegistryConfig() {
+    return new ServiceRegistryConfig();
+  }
+
+  @Bean(initMethod = "addWatcher")
+  public ServiceDiscoveryConfig initDiscoveryConfig() {
+    return new ServiceDiscoveryConfig();
   }
 }

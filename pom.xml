@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.xu</groupId>
-  <artifactId>schedulelite</artifactId>
+  <artifactId>schedule-lite</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -62,7 +62,7 @@
       <groupId>org.apache.curator</groupId>
       <artifactId>curator-framework</artifactId>
       <version>${curator-version}</version>
-      <type>bundle</type>
+      <!--<type>bundle</type>-->
       <exclusions>
         <exclusion>
           <groupId>org.apache.zookeeper</groupId>

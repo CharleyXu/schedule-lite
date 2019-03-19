@@ -1,8 +1,9 @@
-package com.xu.schedulelite.service;
+package com.xu.schedulelite.util;
 
 import com.google.common.base.Charsets;
 import com.xu.schedulelite.exception.ConnectionException;
 import com.xu.schedulelite.exception.DuplicateException;
+import com.xu.schedulelite.watcher.MyCuratorWatcher;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -12,22 +13,20 @@ import org.apache.curator.framework.recipes.cache.NodeCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache.StartMode;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.framework.recipes.cache.TreeCache;
-import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
-import org.apache.curator.framework.recipes.cache.TreeCacheEvent.Type;
-import org.apache.curator.framework.recipes.cache.TreeCacheListener;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * @author CharleyXu Created on 2019/3/5.
+ *
+ * Zk的简单使用
  */
-@Service
+@Component
 @Slf4j
-public class BaseService {
+public class ZookeeperUtil {
 
   @Autowired
   private CuratorFramework curatorFramework;

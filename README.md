@@ -3,4 +3,6 @@
 
 1.Zookeeper 功能和应用场景的简单使用
 
-2.结合quartz，利用Zookeeper实现灵活的分片策略
+discovery 服务注册与发现
+
+2.结合quartz实现任务调度,利用Zookeeper满足灵活的分片策略
