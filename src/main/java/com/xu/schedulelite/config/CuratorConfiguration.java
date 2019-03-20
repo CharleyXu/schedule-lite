@@ -2,6 +2,7 @@ package com.xu.schedulelite.config;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
+import com.xu.schedulelite.listener.ConnectionListener;
 import java.util.List;
 import java.util.Optional;
 import org.apache.curator.framework.CuratorFramework;
@@ -69,5 +70,10 @@ public class CuratorConfiguration {
           });
     }
     return builder.build();
+  }
+
+  @Bean(initMethod = "addListener")
+  public ConnectionListener connectionListener(){
+    return new ConnectionListener();
   }
 }

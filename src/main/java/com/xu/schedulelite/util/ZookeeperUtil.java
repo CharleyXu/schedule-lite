@@ -221,4 +221,14 @@ public class ZookeeperUtil {
     });
   }
 
+  /**
+   * 获取节点全路径.
+   *
+   * @param node 节点名称
+   * @return 节点全路径
+   */
+  private String getFullPath(String path, String node) {
+    return String.format("/%s/%s", path, node);
+  }
+
 }
