@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Slf4j
 public class ServiceRegistryConfig {
 
-  @Value("${discovery.root}")
+  @Value("${discovery.path}")
   private String registerRootPath;
   @Value("${discovery.serviceName}")
   private String serviceName;

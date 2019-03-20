@@ -1,7 +1,6 @@
 server:
   port: 8084
 
-
 curator:
   #重试次数
   maxRetries: 5
@@ -15,9 +14,9 @@ curator:
   connectionTimeoutMs: 5000
   # 权限管理  user:pwd
   digest:
-  # 命名空间
-  # base-namespace  discovery-namespace
-  namespace: discovery-namespace
+  # 当前命名空间
+  # base-namespace  discovery-namespace lock-namespace
+  namespace: lock-namespace
 
 swagger:
   enable: true
@@ -25,11 +24,17 @@ swagger:
 #服务发现 根节点   enable为true时开启
 discovery:
   enable: false
-  root: /rootNode
+  path: /rootNode
   serviceName: serviceDiscovery
   desc: 测试节点1
   weight: 1
 
+#分布式锁
+lock:
+  enable: false
+  path: /lockNode
+
+#设置编码格式
 spring:
   banner:
     charset: UTF-8

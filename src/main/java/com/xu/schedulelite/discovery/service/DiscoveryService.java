@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  *
  * Service registration and discovery
  *
- * 服务注册与发现
+ * 服务发现
  */
 @Service
 @ConditionalOnExpression("'${discovery.enable}' == 'true'")

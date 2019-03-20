@@ -1,7 +1,5 @@
-package com.xu.schedulelite.config;
+package com.xu.schedulelite.discovery.config;
 
-import com.xu.schedulelite.discovery.config.ServiceDiscoveryConfig;
-import com.xu.schedulelite.discovery.config.ServiceRegistryConfig;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnExpression("'${discovery.enable}' == 'true'")
-public class ApplicationConfig {
+public class DiscoveryConfig {
 
   @Bean(initMethod = "init")
   public ServiceRegistryConfig initRegistryConfig() {

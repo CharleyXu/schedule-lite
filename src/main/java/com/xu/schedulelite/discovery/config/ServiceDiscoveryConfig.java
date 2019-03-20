@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Slf4j
 public class ServiceDiscoveryConfig {
 
-  @Value("${discovery.root}")
+  @Value("${discovery.path}")
   private String registerRootPath;
   @Autowired
   private CuratorFramework curatorFramework;
